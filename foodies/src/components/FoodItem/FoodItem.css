@@ -1,0 +1,440 @@
+/* Food Item Card - Premium Styling */
+
+/* Card Container with Warm Background */
+.card {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(135deg, 
+        rgba(255, 248, 240, 0.98) 0%,
+        rgba(255, 243, 224, 0.98) 50%,
+        rgba(255, 237, 213, 0.98) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 
+        0 8px 24px rgba(255, 107, 53, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+/* Hover Effect - Lift and Glow */
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 
+        0 20px 40px rgba(255, 107, 53, 0.2),
+        0 8px 16px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 107, 53, 0.1);
+    background: linear-gradient(135deg, 
+        rgba(255, 245, 235, 1) 0%,
+        rgba(255, 237, 213, 1) 50%,
+        rgba(255, 228, 196, 1) 100%);
+}
+
+/* Animated Border Gradient on Hover */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    padding: 2px;
+    background: linear-gradient(135deg, 
+        #ff6b35,
+        #f7931e,
+        #fbb034,
+        #ff6b35);
+    background-size: 200% 200%;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    animation: borderRotate 3s linear infinite;
+    pointer-events: none;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+@keyframes borderRotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Image Styling */
+.card-img-top {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    filter: brightness(0.95);
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.08);
+    filter: brightness(1.05);
+}
+
+/* Image Overlay Effect */
+.card-img-top::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, 
+        transparent 0%, 
+        rgba(0, 0, 0, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .card-img-top::after {
+    opacity: 1;
+}
+
+/* Card Body with Gradient Background */
+.card-body {
+    padding: 1.25rem;
+    background: linear-gradient(135deg, 
+        rgba(255, 248, 240, 0.95) 0%,
+        rgba(255, 243, 224, 0.95) 50%,
+        rgba(255, 237, 213, 0.95) 100%);
+    position: relative;
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+.card:hover .card-body {
+    background: linear-gradient(135deg, 
+        rgba(255, 245, 235, 1) 0%,
+        rgba(255, 237, 213, 1) 50%,
+        rgba(255, 228, 196, 1) 100%);
+}
+
+/* Card Title */
+.card-title {
+    font-weight: 700;
+    color: #1f2937;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+    letter-spacing: 0.3px;
+}
+
+.card:hover .card-title {
+    color: #ff6b35;
+    text-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
+}
+
+/* Card Description */
+.card-text {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* Price Styling */
+.card-body .h5 {
+    color: #ff6b35;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(255, 107, 53, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover .card-body .h5 {
+    color: #f7931e;
+    transform: scale(1.05);
+    text-shadow: 0 0 20px rgba(247, 147, 30, 0.3);
+}
+
+/* Star Rating */
+.bi-star-fill,
+.bi-star-half {
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.card:hover .bi-star-fill,
+.card:hover .bi-star-half {
+    transform: scale(1.1);
+    filter: drop-shadow(0 2px 4px rgba(255, 193, 7, 0.4));
+}
+
+/* Card Footer with Gradient */
+.card-footer {
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, 
+        rgba(255, 243, 224, 0.98) 0%,
+        rgba(255, 237, 213, 0.98) 100%) !important;
+    border-top: 1px solid rgba(255, 193, 7, 0.2) !important;
+    transition: all 0.3s ease;
+}
+
+.card:hover .card-footer {
+    background: linear-gradient(135deg, 
+        rgba(255, 237, 213, 1) 0%,
+        rgba(255, 228, 196, 1) 100%) !important;
+}
+
+/* View Food Button */
+.btn-primary {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+    letter-spacing: 0.3px;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-primary:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 20px rgba(255, 107, 53, 0.4),
+        0 0 20px rgba(247, 147, 30, 0.3);
+    background: linear-gradient(135deg, #f7931e, #fbb034);
+}
+
+/* Cart/Like Buttons */
+.btn-outline-secondary {
+    border: 2px solid #e5e7eb;
+    color: #6b7280;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    padding: 0.5rem 0.75rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-outline-secondary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(247, 147, 30, 0.1));
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.btn-outline-secondary:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+.btn-outline-secondary:hover {
+    border-color: #ff6b35;
+    color: #ff6b35;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+    background: rgba(255, 255, 255, 1);
+}
+
+.btn-outline-secondary:active {
+    transform: scale(0.95);
+}
+
+/* Quantity Controls */
+.card-footer .d-flex.align-items-center {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.card-footer .d-flex.align-items-center:hover {
+    border-color: #ff6b35;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
+}
+
+.card-footer .d-flex.align-items-center span {
+    font-weight: 700;
+    color: #ff6b35;
+    min-width: 30px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Icon Animations */
+.bi-cart-plus,
+.bi-heart {
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover .bi-cart-plus,
+.btn-outline-secondary:hover .bi-heart {
+    transform: scale(1.2);
+}
+
+/* Shimmer Effect on Card Load */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+}
+
+/* Badge/Tag Styling (if you add discount/new tags) */
+.badge-custom {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+    letter-spacing: 0.5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .card {
+        border-radius: 12px;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+    }
+    
+    .btn-sm {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Loading State */
+.card.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Success State (when added to cart) */
+.card.added-to-cart {
+    animation: pulseSuccess 0.6s ease;
+}
+
+@keyframes pulseSuccess {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 30px rgba(255, 107, 53, 0.4);
+    }
+}
+
+/* Gap between cards */
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+/* Link styling */
+.card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card a:hover {
+    color: inherit;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+    cursor: pointer;
+    user-select: none;
+}
+
+button:focus,
+a:focus {
+    outline: 2px solid rgba(255, 107, 53, 0.3);
+    outline-offset: 2px;
+}
+
+/* Image wrapper for proper overflow handling */
+.card > a {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Add to cart feedback animation */
+@keyframes cartFeedback {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    75% {
+        transform: scale(0.95);
+    }
+}
+
+.btn-outline-secondary.adding {
+    animation: cartFeedback 0.4s ease;
+}
